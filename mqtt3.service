@@ -1,0 +1,15 @@
+[Unit]
+Description=MinIO Feishu Notifier 
+After=network.target
+
+[Service]
+ 
+ExecStart=/usr/bin/python3 /docker/mqtt3.py
+WorkingDirectory=/path/to/ 
+StandardOutput=append:/var/log/minio_notifier.log 
+StandardError=append:/var/log/minio_notifier.err 
+Restart=always
+User=root
+
+[Install]
+WantedBy=multi-user.target
